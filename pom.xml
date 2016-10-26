@@ -8,7 +8,8 @@
 	<name>demo</name>
 	<url>http://maven.apache.org</url>
 	<!-- 指定maven仓库 -->
-	<repositories><!-- 发现依赖和扩展的远程资源库 -->
+	<repositories>
+		<!-- 发现依赖和扩展的远程资源库 -->
 		<!-- maven自己官方仓库 -->
 		<repository>
 			<id>maven</id>
