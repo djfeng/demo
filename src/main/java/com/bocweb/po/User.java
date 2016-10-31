@@ -1,5 +1,7 @@
 package com.bocweb.po;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,24 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.bocweb.core.entity.LongPKEntity;
+import com.bocweb.core.enums.SexFlag;
+
 @Table(name = "t_user")
 @Entity
-public class User {
-	private int id;
+public class User extends LongPKEntity{
+	
 	private String username;
 	private String password;
-	private boolean sex; // 默认为0；0表示男，1表示女
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "UID", nullable = false, length = 9)
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	private SexFlag sexFlag; 
+	private Date birthday;
+	private Double score;
+	
 
 	@Column(name = "UNAME", nullable = false, length = 20)
 	public String getUsername() {
@@ -33,6 +30,30 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public SexFlag getSexFlag() {
+		return sexFlag;
+	}
+
+	public void setSexFlag(SexFlag sexFlag) {
+		this.sexFlag = sexFlag;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	@Column(name = "UPASSWORD", nullable = false, length = 32)
@@ -44,19 +65,7 @@ public class User {
 		this.password = password;
 	}
 
-	@Column(name = "USEX", nullable = false, length = 1)
-	public boolean isSex() {
-		return sex;
-	}
-
-	public void setSex(boolean sex) {
-		this.sex = sex;
-	}
-
-	@Override
-	public String toString() {
-		return "User [ \nid : " + this.id + "\nusername : " + this.username + "\npassword : " + this.password
-				+ "\nsex : " + this.sex + " ]";
-	}
+	
+	
 
 }

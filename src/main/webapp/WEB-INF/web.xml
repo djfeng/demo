@@ -9,6 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
+	
 	<!-- openSessionInView配置 -->
 	<filter>
 		<filter-name>openSessionInViewFilter</filter-name>
@@ -18,6 +19,9 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<!--spring mvc 配置 -->
 	<servlet>
 		<servlet-name>springMVC</servlet-name>
@@ -58,9 +62,7 @@
 	</filter-mapping>
 
 
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
